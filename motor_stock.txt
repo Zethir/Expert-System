@@ -1,0 +1,54 @@
+Rules:
+A + B => C | D
+Stock:
+{'C|D': '(A+B)'}
+
+Rules:
+A + B => C + D
+Stock:
+{'C':'(A+B)', 'D':'(A+B)'}
+
+Rules:
+A + B => C ^ D
+Stock:
+{'C':'(A+B)+!D', 'D':'(A+B)+!C']}
+
+Rules:
+A + B => C + D ^ E
+Stock:
+{'E':'(A+B)+!(C+D)', 'C':'(A+B)+!E', 'D':'(A+B)+!E'}
+
+Rules:
+A + B => C + (D ^ E)
+Stock:
+{'D':'A+B+!E', 'E':'A+B+!D', 'C':'(A+B+!E)|(A+B+!D)'}
+
+Rules:
+A + B => C ^ D + E
+Stock:
+{'C':'(A+B)+!(D+E)', 'D':'(A+B)+!C', 'E':'(A+B)+!C'}
+
+Rules:
+A + B => C + D ^ E + F
+Stock:
+{'C':'(A+B)+!(E+F), 'D':'(A+B)+!(E+F)','E':'(A+B)+!(C+D)','F':'(A+B)+!(C+D)'}
+
+Rules:
+A + B => C ^ D + E + F
+Stock:
+{'C':'(A+B)+!(D+E+F), 'D':'(A+B)+!(C)','E':'(A+B)+!(C)','F':'(A+B)+!(C)'}
+
+Rules:
+A + B => C ^ D ^ E + F
+Stock:
+{'C':'(A+B)+!(D)+!(E+F)), 'D':'(A+B)+!(C)+!(E+F)','E':'(A+B)+!(C)+!(D)','F':'(A+B)+!(C)+!(D)'}
+
+Rules:
+A | B <=> C + D
+Stock:
+{'C':'(A|B)', 'D':'(A|B)', 'A|B':'(C+D)'}
+
+Rules:
+A + B <=> C + D
+Stock:
+{'C':'(A+B)', 'D':'(A+B)', 'A':'(C+D)', 'B':'(C+D)'}
